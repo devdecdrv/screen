@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.dec.remote"
-        minSdk 26          // Android 8.0+ (MediaProjection stable)
+        minSdk 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -20,10 +20,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
-    }
-
-    buildFeatures {
-        viewBinding true
     }
 
     compileOptions {
