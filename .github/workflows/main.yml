@@ -41,7 +41,7 @@ jobs:
 
       - name: Build debug APK
         working-directory: dec_remote/android_app
-        run: gradle assembleDebug --stacktrace
+        run: gradle assembleDebug --info 2>&1 | tail -100
 
       - name: Set release tag
         id: tag
@@ -57,9 +57,7 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: "dec Remote ${{ steps.tag.outputs.tag }}"
-          body: |
-            Auto-build from push to main
-            APK install karo, Bot Token + Worker URL bharo, START karo
+          body: Auto-build from main
           files: dec_remote/android_app/app/build/outputs/apk/debug/app-debug.apk
           draft: false
           prerelease: false
